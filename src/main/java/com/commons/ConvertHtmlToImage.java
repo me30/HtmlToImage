@@ -37,7 +37,7 @@ public abstract class  ConvertHtmlToImage {
 			image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 			Graphics g = image.createGraphics();
 			Container c = new Container();
-			SwingUtilities.paintComponent(g, pane, c, 0, 0, 1000, height);
+			SwingUtilities.paintComponent(g, pane, c, 0, 0, width, height);
 			g.dispose();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -61,17 +61,17 @@ public abstract class  ConvertHtmlToImage {
 		
 		//######## 1........
 		File piza = new File("file:src/main/resources/pizza.html");
-		BufferedImage ire = ConvertHtmlToImage.create(piza.getPath(), 1000, 1000);
+		BufferedImage ire = ConvertHtmlToImage.create(piza.getPath(), 800, 1000);
 		ImageIO.write(ire, "png", new File("src/main/output/original/pizza.png"));
 		
 		//we are resize orignal images...
 		int type = ire.getType() == 0? BufferedImage.TYPE_INT_ARGB : ire.getType();
-		BufferedImage ire_ = ConvertHtmlToImage.resizeImage(ire, type, 750, 750);
+		BufferedImage ire_ = ConvertHtmlToImage.resizeImage(ire, type, 300, 500);
 		ImageIO.write(ire_, "png", new File("src/main/output/pizza.png"));
 
 		//######## 2........
 		File base_boxed_basic_2column_query = new File("file:src/main/resources/base_boxed_basic_2column_query.html");
-		BufferedImage ire1 = ConvertHtmlToImage.create(base_boxed_basic_2column_query.getPath(), 1000, 5000);
+		BufferedImage ire1 = ConvertHtmlToImage.create(base_boxed_basic_2column_query.getPath(), 800, 1000);
 		ImageIO.write(ire1, "png", new File("src/main/output/original/base_boxed_basic_2column_query.png"));
 		
 		//we are resize orignal images...
@@ -81,7 +81,7 @@ public abstract class  ConvertHtmlToImage {
 
 		//######## 3........
 		File Template_Thankyou_Checkin = new File("file:src/main/resources/Template_Thankyou_Checkin.html");
-		BufferedImage ire2 = ConvertHtmlToImage.create(Template_Thankyou_Checkin.getPath(), 1000, 5000);
+		BufferedImage ire2 = ConvertHtmlToImage.create(Template_Thankyou_Checkin.getPath(), 800, 1000);
 		ImageIO.write(ire2, "png", new File("src/main/output/original/Template_Thankyou_Checkin.png"));
 		
 		//we are resize orignal images...
